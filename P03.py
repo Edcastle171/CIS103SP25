@@ -1,18 +1,25 @@
-pounds = float(input('How many pounds of screws will you be purchasing?'))
-sale = pounds * .99
-if pounds > 10 or < 100
-   disc = 10
+quantity = int(input("Pounds of screws: "))
+
+if quantity <=0:
+    print("Error: Please provide a number of pounds greater than 0")
 else:
-   if pounds >= 100 or < 1000
-       disc = 20
-   else:
-       if pounds >= 1000 or 9999.99
-           disc = 30
-       else:
-           if pounds >= 10000
-               disc = 40
-finalprice = (.99 % pounds) * disc * 100
-print('Number of pounds:', pounds)
-print('Gross Sales:'sale'$')
-print('Discount:', disc'$')
-print('Final Amount:',finalprice)
+    price = .99
+if 0 <= quantity <= 9.99:
+    discount = 0.0
+if 10 <= quantity <= 99.99:
+    discount = 0.10
+elif 100 <= quantity <= 999.99:
+    discount = 0.20
+elif 1000 <= quantity <= 9999.99:
+    discount = 0.30
+else:
+    discount = 0.40
+
+total = quantity * price
+discount_amount = total * discount
+final_price = total - discount_amount
+
+print("Number of pounds: ", quantity)
+print("Gross sales: $", round(total, 2))
+print("Discount: $", discount_amount)
+print("Final Amount $", round(final_price, 2))
