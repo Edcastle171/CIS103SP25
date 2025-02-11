@@ -1,0 +1,6 @@
+name = input('Enter your name:')
+acc = input('Enter your account number:')
+pay = input('Enter your payment amount:')
+nacc = float(acc)
+if(len(acc)==0) or acc.isspace() or acc.isalpha()
+    print('Cacnnot be blank or alphabetic')
