@@ -1,0 +1,24 @@
+user_number = float(input("Enter a number to use in the operation: "))
+print("Type in the letter that cooresponds with the desired operation: a = add, s = subtract, m = multiply, d = divide")
+operation = input("Enter your choice: ").strip().lower()
+print("\n--- Result Table ---")
+for i in range(1, 11):
+    if operation == "a":
+        result = i + user_number
+        print(f"{i} + {user_number} = {result}")
+    elif operation == "s":
+        result = i - user_number
+        print(f"{i} - {user_number} = {result}")
+    elif operation == "m":
+        result = i * user_number
+        print(f"{i} * {user_number} = {result}")
+    elif operation == "d":
+        if user_number != 0:
+            result = i / user_number
+            print(f"{i} / {user_number} = {result:.2f}")
+        else:
+            print(f"{i} / {user_number} = Undefined (division by zero)")
+            break
+    else:
+        print("Can't do that. Please restart the program.")
+        break
