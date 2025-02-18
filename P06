@@ -1,0 +1,17 @@
+CALORIES_PER_MINUTE = 4.33
+keep_running = True
+while keep_running:
+    total_time = int(input("Enter the total time you plan to run on the treadmill (in minutes): "))
+    if total_time <= 5:
+        print("Please enter a time greater than 5 minutes.")
+        total_time = int(input("Enter the total time you plan to run on the treadmill (in minutes): "))
+    print("\nCalories Burned Table")
+    print("------------------------")
+    minutes = 5
+    while minutes <= total_time:
+        print(f"Minutes:{minutes}\t\t Calories:{(minutes * CALORIES_PER_MINUTE):.2f}")
+        minutes += 5
+    repeat = input("\nWould you like to run the program again? (yes/no): ")
+    if repeat != "yes" and repeat != "YES" and repeat != "Yes":
+        keep_running = False
+print("Goodbye!")
