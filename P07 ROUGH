@@ -1,0 +1,8 @@
+print('\n'"The conversion Program")
+print("--------------")
+M = float(input("Let's start with distance - please input number of Miles to convert to Kilometers: "))
+K = (M * 1.609344)
+print(f"{M} Miles is roughly {K:.2f} Kilometers!")
+F = float(input("Next, let's do Fahrenheit to Celsius. Please enter the degrees in Fahrenheit: "))
+C = (F - 32) * 5/9
+print(f"{F} degrees Fahrenheit is {C:.1f} degrees Celsius!")
