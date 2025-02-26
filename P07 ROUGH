@@ -1,8 +1,22 @@
-print('\n'"The conversion Program")
-print("--------------")
-M = float(input("Let's start with distance - please input number of Miles to convert to Kilometers: "))
-K = (M * 1.609344)
-print(f"{M} Miles is roughly {K:.2f} Kilometers!")
-F = float(input("Next, let's do Fahrenheit to Celsius. Please enter the degrees in Fahrenheit: "))
-C = (F - 32) * 5/9
-print(f"{F} degrees Fahrenheit is {C:.1f} degrees Celsius!")
+def miles_to_kilometers(miles):
+    return miles * 1.609344
+def fahrenheit_to_celsius(fahrenheit):
+    return (fahrenheit - 32) * 5/9
+
+def pounds_to_kilograms(pounds):
+    return pounds * 0.453592
+
+def main():
+    print("Unit Converter")
+    
+    miles = float(input("Enter miles: "))
+    print(f"{miles} miles is {miles_to_kilometers(miles):.2f} kilometers")
+    
+    fahrenheit = float(input("Enter temperature in Fahrenheit: "))
+    print(f"{fahrenheit}degrees F is {fahrenheit_to_celsius(fahrenheit):.2f} degrees C")
+    
+    pounds = float(input("Enter weight in pounds: "))
+    print(f"{pounds} lbs is {pounds_to_kilograms(pounds):.2f} kg")
+
+if __name__ == "__main__":
+    main()
