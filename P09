@@ -1,0 +1,31 @@
+def acres_to_hectares(acres):
+    return acres * 0.404686
+
+def quarts_to_liters(quarts):
+    return quarts * 0.946353
+
+def fahrenheit_to_kelvin(fahrenheit):
+    return (fahrenheit - 32) * 5/9 + 273.15
+
+def main():
+    run_again = "yes"
+    while run_again == "yes":
+        acres = float(input("Enter area in acres: "))
+        if acres < 0:
+            print("Acres cannot be negative.")
+            continue
+        print(f"{acres} acres is {acres_to_hectares(acres):.4f} hectares.")
+        
+        quarts = float(input("Enter volume in quarts: "))
+        if quarts < 0:
+            print("Quarts cannot be negative.")
+            continue
+        print(f"{quarts} quarts is {quarts_to_liters(quarts):.4f} liters.")
+        
+        fahrenheit = float(input("Enter temperature in Fahrenheit: "))
+        print(f"{fahrenheit} Fahrenheit is {fahrenheit_to_kelvin(fahrenheit):.2f} Kelvin.")
+        
+        run_again = input("Do you want to run the program again? (yes/no): ").strip().lower()
+
+if __name__ == "__main__":
+    main()
