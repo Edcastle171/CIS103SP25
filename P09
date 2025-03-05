@@ -25,7 +25,7 @@ def main():
         fahrenheit = float(input("Enter temperature in Fahrenheit: "))
         print(f"{fahrenheit} Fahrenheit is {fahrenheit_to_kelvin(fahrenheit):.2f} Kelvin.")
         
-        run_again = input("Do you want to run the program again? (yes/no): ").strip().lower()
+        run_again = input("Do you want to run the program again? (yes/no): ")
 
 if __name__ == "__main__":
     main()
