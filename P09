@@ -1,31 +1,50 @@
 def acres_to_hectares(acres):
-    return acres * 0.4047
+    try:
+        acres = float(acres)
+    except ValueError:
+        raise ValueError("Input must be a numerical value.")
+    return acres * 0.404686
 
 def quarts_to_liters(quarts):
+    try:
+        quarts = float(quarts)
+    except ValueError:
+        raise ValueError("Input must be a numerical value.")
     return quarts * 0.946353
 
 def fahrenheit_to_kelvin(fahrenheit):
-    return (fahrenheit - 32) * (5/9) + 273.15
+    try:
+        fahrenheit = float(fahrenheit)
+    except ValueError:
+        raise ValueError("Input must be a numerical value.")
+    return (fahrenheit - 32) * 5/9 + 273.15
 
 def main():
-    run_again = "yes"
-    while run_again == "yes":
-        acres = float(input("Enter area in acres: "))
-        if acres < 0:
-            print("Acres cannot be negative.")
+    run_again = "y"
+
+    while run_again.lower() == "y":
+        try:
+            acres = float(input("Enter acres: "))
+            if acres < 0:
+                print("Acres cannot be negative.")
+            else:
+                print(f"{acres} acres is {acres_to_hectares(acres):.4f} hectares")
+            
+            quarts = float(input("Enter quarts: "))
+            if quarts < 0:
+                print("Quarts cannot be negative.")
+            else:
+                print(f"{quarts} quarts is {quarts_to_liters(quarts):.4f} liters")
+            
+            fahrenheit = float(input("Enter Fahrenheit: "))
+            print(f"{fahrenheit} degrees F is {fahrenheit_to_kelvin(fahrenheit):.2f} degrees K")
+        
+        except ValueError:
+            print("Invalid input. Please enter a numerical value.")
             continue
-        print(f"{acres} acres is {acres_to_hectares(acres):.4f} hectares.")
-        
-        quarts = float(input("Enter volume in quarts: "))
-        if quarts < 0:
-            print("Quarts cannot be negative.")
-            continue
-        print(f"{quarts} quarts is {quarts_to_liters(quarts):.4f} liters.")
-        
-        fahrenheit = float(input("Enter temperature in Fahrenheit: "))
-        print(f"{fahrenheit} Fahrenheit is {fahrenheit_to_kelvin(fahrenheit):.2f} Kelvin.")
-        
-        run_again = input("Do you want to run the program again? (yes/no): ")
+        run_again = input("Would you like to run the program again? (y/n): ").strip().lower()
+
+    print("See ya!")
 
 if __name__ == "__main__":
     main()
