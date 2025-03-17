@@ -1,40 +1,63 @@
-def process_grades(input_file):
-    with open(input_file, 'r') as file:
-        grades_file = open("grades.txt", 'w')
-        error_file = open("error.txt", 'w')
-        
-        for row in file:
-            row = row.strip().split(',')
-            try:
-                if len(row) < 3:
-                    raise ValueError("Missing fields")
-                
-                student_id = row[0].strip()
-                name = row[1].strip()
-                points = float(row[2].strip())  # Convert points to float
-                
-                # Placeholder for grade calculation logic
-                grade = calculate_grade(points)
-                
-                grades_file.write(f"{student_id}, {name}, {points}, {grade}\n")
-            except Exception as e:
-                error_file.write(f"{row[0] if row else 'UNKNOWN'}, {row[1] if len(row) > 1 else 'UNKNOWN'}, {row[2] if len(row) > 2 else 'UNKNOWN'}, {str(e)}\n")
-        
-        grades_file.close()
-        error_file.close()
-
-def calculate_grade(points):
-    if points >= 90:
-        return 'A'
-    elif points >= 80:
-        return 'B'
-    elif points >= 70:
-        return 'C'
-    elif points >= 60:
-        return 'D'
+def calculate_grade(score):
+    if score > 900:
+        return "A"
+    elif score > 800:
+        return "B"
+    elif score > 700:
+        return "C"
+    elif score > 600:
+        return "D"
     else:
-        return 'F'
+        return "F"
+
+def processpointsfile():
+    try:
+        infile = open("points.txt", "r")
+    except FileNotFoundError:
+        print("Error: 'points.txt' file not found.")
+        return
+
+    valid_entries = []
+    error_entries = []
+
+    while True:
+        line = infile.readline()
+        if not line:  # EOF check
+            break
+        
+        line = line.strip()
+        parts = line.split(", ")
+        
+        if len(parts) != 3:
+            error_entries.append(line)
+            continue
+
+        student_id, student_name, score = parts
+        
+        if not student_id.isdigit():
+            error_entries.append(line)
+            continue
+        
+        try:
+            score = int(score)
+        except ValueError:
+            error_entries.append(line)
+            continue
+        
+        grade = calculate_grade(score)
+        valid_entries.append(f"{student_id}, {student_name}, {grade}")
+    
+    infile.close()
+    
+    with open("grades.txt", "w") as grade_file:
+        for entry in valid_entries:
+            grade_file.write(entry + "\n")
+    
+    with open("error.txt", "w") as error_file:
+        for entry in error_entries:
+            error_file.write(entry + "\n")
+
+    print("Processing complete. Check 'grades.txt' and 'error.txt'.")
 
 if __name__ == "__main__":
-    input_filename = "input.csv"  # Replace with the actual input file
-    process_grades(input_filename)
+    processpointsfile()
