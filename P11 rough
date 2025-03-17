@@ -12,7 +12,8 @@ def calculate_grade(score):
 
 def processpointsfile():
     try:
-        infile = open("points.txt", "r")
+        with open("points.txt", "r") as infile:
+            lines = infile.readlines()
     except FileNotFoundError:
         print("Error: 'points.txt' file not found.")
         return
@@ -20,11 +21,7 @@ def processpointsfile():
     valid_entries = []
     error_entries = []
 
-    while True:
-        line = infile.readline()
-        if not line:  # EOF check
-            break
-        
+    for line in lines:
         line = line.strip()
         parts = line.split(", ")
         
@@ -47,8 +44,6 @@ def processpointsfile():
         grade = calculate_grade(score)
         valid_entries.append(f"{student_id}, {student_name}, {grade}")
     
-    infile.close()
-    
     with open("grades.txt", "w") as grade_file:
         for entry in valid_entries:
             grade_file.write(entry + "\n")
@@ -61,3 +56,4 @@ def processpointsfile():
 
 if __name__ == "__main__":
     processpointsfile()
+
