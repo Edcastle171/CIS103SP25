@@ -14,11 +14,31 @@ games, and digital and animated special effects. Sites like YouTube
 and Instagram are among some of the titans that rely on this
 language to support both front-end and back-end functionality.    
         '''
-    print(thetext)
+    
+    print("Original Length:", len(thetext))
+    
+    thetext = thetext.strip()
+    print("New Length after strip:", len(thetext))
+    
+    the_count = thetext.lower().count(" the ")
+    print("Count of 'the':", the_count)
+    
+    if "little" in thetext:
+        print("The word 'little' was found.")
+    else:
+        print("The word 'little' was NOT found.")
+    
+    if "titan" in thetext:
+        print("The word 'titan' was found.")
+    else:
+        print("The word 'titan' was NOT found.")
+    
+    position = thetext.find("appl")
+    print("Position of 'appl':", position if position != -1 else "Not found")
 
-# ---------------------------------
-#  put assignment statements here
-# ---------------------------------
-
-    return
+    thetext2 = thetext
+    
+    thetext2 = thetext2.replace("Python", "PYTHON")
+    print("Updated Text:\n", thetext2)
+    
 main()
