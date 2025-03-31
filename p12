@@ -1,0 +1,42 @@
+def main():
+    months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+    rainfall = []
+    
+    for month in months:
+        inches = input(f"Enter the inches of rainfall for {month}: ")
+        
+        try:
+            inches = float(inches)
+            if inches >= 0:
+                rainfall.append(inches)
+            else:
+                print("Rainfall cannot be negative. Please enter a valid number.")
+                return
+        except ValueError:
+            print("Invalid input. Please enter a numerical value.")
+            return
+    
+    total_rainfall = 0
+    highest_rainfall = rainfall[0]
+    lowest_rainfall = rainfall[0]
+    
+    for value in rainfall:
+        total_rainfall += value
+        if value > highest_rainfall:
+            highest_rainfall = value
+        if value < lowest_rainfall:
+            lowest_rainfall = value
+    
+    average_rainfall = total_rainfall / len(rainfall)
+    
+    highest_index = rainfall.index(highest_rainfall)
+    lowest_index = rainfall.index(lowest_rainfall)
+    
+    print("\nRainfall Statistics:")
+    print(f"Total Rainfall: {total_rainfall:.2f} inches")
+    print(f"Average Monthly Rainfall: {average_rainfall:.2f} inches")
+    print(f"Highest Rainfall: {highest_rainfall:.2f} inches ({months[highest_index]})")
+    print(f"Lowest Rainfall: {lowest_rainfall:.2f} inches ({months[lowest_index]})")
+
+if __name__ == "__main__":
+    main()
