@@ -1,0 +1,45 @@
+roman_dict = {
+    1: "I", 2: "II", 3: "III", 4: "IV", 5: "V", 6: "VI", 7: "VII", 8: "VIII", 9: "IX",
+    10: "X", 11: "XI", 12: "XII", 13: "XIII", 14: "XIV", 15: "XV", 16: "XVI", 17: "XVII", 18: "XVIII", 19: "XIX",
+    20: "XX", 21: "XXI", 22: "XXII", 23: "XXIII", 24: "XXIV"
+}
+
+
+def print_dictionary():
+    print("\nDecimal to Roman Numeral Mapping:")
+    for key, value in sorted(roman_dict.items()):  # Sorted for readability
+        print(f"{key}: {value}")
+
+
+print_dictionary()
+
+
+num = 1  # Initialize with a positive number
+while num > 0:
+    try:
+        num = int(input("\nEnter a number to convert to a Roman numeral (negative or 0 to exit): "))
+
+        if num <= 0:
+            break  # Exit if the number is negative or zero
+
+        if num in roman_dict:
+            print(f"The Roman numeral for {num} is {roman_dict[num]}")
+        else:
+            add = input(f"Number {num} not found. Add to dictionary? (yes/no): ").strip().lower()
+            
+            if add == "yes":
+                new_roman = input(f"Enter the Roman numeral for {num}: ").strip().upper()
+                
+                while not new_roman.isalpha():  # Ensure only letters
+                    print("Error: Roman numeral must be alphabetical. Try again.")
+                    new_roman = input(f"Enter the Roman numeral for {num}: ").strip().upper()
+
+                roman_dict[num] = new_roman
+                print(f"Added {num}: {new_roman} to the dictionary.")
+
+    except ValueError:
+        print("Error - Invalid input. Please enter a valid integer.")
+
+
+print("\nFinal Dictionary:")
+print_dictionary()
