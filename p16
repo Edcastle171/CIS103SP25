@@ -7,7 +7,7 @@ def getNumber():
     numberInput = None
     while numberInput is None:
         try:
-            userInput = input("Enter a positive integer: ")
+            userInput = input("Enter a positive number: ")
             if not userInput.strip():
                 print("Input cannot be blank. Try again.")
                 continue
