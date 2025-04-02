@@ -1,0 +1,36 @@
+def sumRecursive(num):
+    if num == 1:
+        return 1
+    return num + sumRecursive(num - 1)
+
+def getNumber():
+    numberInput = None
+    while numberInput is None:
+        try:
+            userInput = input("Enter a positive integer: ")
+            if not userInput.strip():
+                print("Input cannot be blank. Try again.")
+                continue
+            numberInput = int(userInput)
+            if numberInput <= 0:
+                print("Number must be positive. Try again.")
+                numberInput = None
+        except ValueError:
+            print("Invalid input. Please enter a valid integer.")
+            numberInput = None
+    return numberInput
+
+def runProgram():
+    repeat = "yes"
+    while repeat == "yes":
+        num = getNumber()
+        total = sumRecursive(num)
+        
+        sequence = "+".join(str(i) for i in range(num, 0, -1))
+        print(f"{sequence} = {total}")
+        
+        repeat = input("Another number? (yes/no): ").strip().lower()
+    print("Goodbye!")
+
+if __name__ == "__main__":
+    runProgram()
