@@ -1,0 +1,51 @@
+import random
+
+def generatePowerball():
+    chosenNumbers = random.sample(range(1, 70), 5)
+    powerNumber = random.randint(1, 26)
+    return chosenNumbers, powerNumber
+
+def generateMegaMillion():
+    chosenNumbers = random.sample(range(1, 71), 5)
+    megaNumber = random.randint(1, 25)
+    return chosenNumbers, megaNumber
+
+def generateLuckyDayLotto():
+    chosenNumbers = random.sample(range(1, 46), 5)
+    return chosenNumbers
+
+def generateLotto():
+    chosenNumbers = random.sample(range(1, 53), 6)
+    return chosenNumbers
+
+def displayMenu():
+    print("\nLottery Number Generator")
+    print("1. Power Ball")
+    print("2. Mega Million")
+    print("3. Lucky Day Lotto")
+    print("4. Lotto")
+    print("5. Quit")
+
+def runLotteryProgram():
+    displayMenu()
+    userChoice = input("Select an option (1-5): ")
+    
+    if userChoice == "1":
+        chosenNumbers, powerNumber = generatePowerball()
+        print(f"Power Ball Numbers: {chosenNumbers}, Power Ball: {powerNumber}")
+    elif userChoice == "2":
+        chosenNumbers, megaNumber = generateMegaMillion()
+        print(f"Mega Million Numbers: {chosenNumbers}, Mega Ball: {megaNumber}")
+    elif userChoice == "3":
+        chosenNumbers = generateLuckyDayLotto()
+        print(f"Lucky Day Lotto Numbers: {chosenNumbers}")
+    elif userChoice == "4":
+        chosenNumbers = generateLotto()
+        print(f"Lotto Numbers: {chosenNumbers}")
+    elif userChoice == "5":
+        print("Goodbye!")
+    else:
+        print("Invalid choice, please run the program again and select a valid option.")
+
+if __name__ == "__main__":
+    runLotteryProgram()
