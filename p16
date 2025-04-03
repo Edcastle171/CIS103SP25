@@ -1,3 +1,6 @@
+import sys
+sys.setrecursionlimit(5000)
+
 def sumRecursive(num):
     if num == 1:
         return 1
