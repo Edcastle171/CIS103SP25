@@ -32,10 +32,10 @@ def runLotteryProgram():
     
     if userChoice == "1":
         chosenNumbers, powerNumber = generatePowerball()
-        print(f"Power Ball Numbers: {chosenNumbers}, Power Ball: {powerNumber}")
+        print(f"Power Ball Numbers: {chosenNumbers}")
     elif userChoice == "2":
         chosenNumbers, megaNumber = generateMegaMillion()
-        print(f"Mega Million Numbers: {chosenNumbers}, Mega Ball: {megaNumber}")
+        print(f"Mega Million Numbers: {chosenNumbers}")
     elif userChoice == "3":
         chosenNumbers = generateLuckyDayLotto()
         print(f"Lucky Day Lotto Numbers: {chosenNumbers}")
