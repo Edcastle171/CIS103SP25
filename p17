@@ -1,24 +1,24 @@
 import random
 
-def generatePowerball():
+def genpowerball():
     chosenNumbers = random.sample(range(1, 70), 5)
-    powerNumber = random.randint(1, 26)
-    return chosenNumbers, powerNumber
+    powernumb = random.randint(1, 26)
+    return chosenNumbers, powernumb
 
-def generateMegaMillion():
+def generatemegamillion():
     chosenNumbers = random.sample(range(1, 71), 5)
     megaNumber = random.randint(1, 25)
     return chosenNumbers, megaNumber
 
-def generateLuckyDayLotto():
+def genluckydaylotto():
     chosenNumbers = random.sample(range(1, 46), 5)
     return chosenNumbers
 
-def generateLotto():
+def generatelotto():
     chosenNumbers = random.sample(range(1, 53), 6)
     return chosenNumbers
 
-def displayMenu():
+def displaymenu():
     print("\nLottery Number Generator")
     print("1. Power Ball")
     print("2. Mega Million")
@@ -27,20 +27,20 @@ def displayMenu():
     print("5. Quit")
 
 def runLotteryProgram():
-    displayMenu()
+    displaymenu()
     userChoice = input("Select an option (1-5): ")
     
     if userChoice == "1":
-        chosenNumbers, powerNumber = generatePowerball()
+        chosenNumbers, powernumb = genpowerball()
         print(f"Power Ball Numbers: {chosenNumbers}")
     elif userChoice == "2":
-        chosenNumbers, megaNumber = generateMegaMillion()
+        chosenNumbers, megaNumber = generatemegamillion()
         print(f"Mega Million Numbers: {chosenNumbers}")
     elif userChoice == "3":
-        chosenNumbers = generateLuckyDayLotto()
+        chosenNumbers = genluckydaylotto()
         print(f"Lucky Day Lotto Numbers: {chosenNumbers}")
     elif userChoice == "4":
-        chosenNumbers = generateLotto()
+        chosenNumbers = generatelotto()
         print(f"Lotto Numbers: {chosenNumbers}")
     elif userChoice == "5":
         print("Goodbye!")
