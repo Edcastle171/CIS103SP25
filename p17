@@ -1,20 +1,20 @@
 import random
 
-def generate_powerball():
+def generatepowerball():
     numbers = random.sample(range(1, 70), 5)
-    powerball = random.randint(1, 26)  # Powerball number
-    return sorted(numbers) + [powerball]
+    powerball = random.randint(1, 26)
+    return sorted(numbers)
 
-def generate_mega_million():
+def genmegamill():
     numbers = random.sample(range(1, 71), 5)
-    mega_ball = random.randint(1, 25)  # Mega Ball number
-    return sorted(numbers) + [mega_ball]
+    mega_ball = random.randint(1, 25)
+    return sorted(numbers)
 
-def generate_lucky_day_lotto():
+def genluckyday():
     numbers = random.sample(range(1, 46), 5)
     return sorted(numbers)
 
-def generate_lotto():
+def genlotto():
     numbers = random.sample(range(1, 53), 6)
     return sorted(numbers)
 
@@ -31,16 +31,16 @@ def main():
         choice = input("Select an option (1-5): ")
         
         if choice == '1':
-            print("Power Ball Numbers:", generate_powerball())
+            print("Power Ball Numbers:", generatepowerball())
         elif choice == '2':
-            print("Mega Million Numbers:", generate_mega_million())
+            print("Mega Million Numbers:", genmegamill())
         elif choice == '3':
-            print("Lucky Day Lotto Numbers:", generate_lucky_day_lotto())
+            print("Lucky Day Lotto Numbers:", genluckyday())
         elif choice == '4':
-            print("Lotto Numbers:", generate_lotto())
+            print("Lotto Numbers:", genlotto())
         elif choice == '5':
             print("Goodbye!")
-            return
+            break
         else:
             print("Invalid choice, please select a valid option.")
             continue
@@ -49,4 +49,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
