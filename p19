@@ -1,0 +1,19 @@
+import tkinter as tk
+
+root = tk.Tk()
+root.title("funny face")
+
+canvas = tk.Canvas(root, width=400, height=400, bg='white')
+canvas.pack()
+
+canvas.create_oval(50, 50, 350, 350, outline="green", width=2)
+
+canvas.create_oval(110, 110, 170, 170, fill="red", outline="")
+
+canvas.create_oval(230, 110, 290, 170, fill="blue", outline="")
+
+canvas.create_rectangle(150, 200, 250, 220, fill="yellow", outline="")
+
+canvas.create_polygon(140, 280, 260, 280, 200, 340, outline="black", fill="black", width=2)
+
+root.mainloop()
