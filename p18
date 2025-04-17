@@ -1,0 +1,54 @@
+import tkinter as tk
+
+def kelvin_to_celsius(k):
+    return k - 273.15
+
+def kelvin_to_fahrenheit(k):
+    return (k - 273.15) * 9/5 + 32
+
+def calculate():
+    try:
+        kelvin = float(kelvin_entry.get())
+        celsius = kelvin_to_celsius(kelvin)
+        fahrenheit = kelvin_to_fahrenheit(kelvin)
+
+        celsius_entry.delete(0, tk.END)
+        celsius_entry.insert(0, f"{celsius:.2f}")
+
+        fahrenheit_entry.delete(0, tk.END)
+        fahrenheit_entry.insert(0, f"{fahrenheit:.2f}")
+    except ValueError:
+        celsius_entry.delete(0, tk.END)
+        fahrenheit_entry.delete(0, tk.END)
+        celsius_entry.insert(0, "Invalid Input")
+        fahrenheit_entry.insert(0, "Invalid Input")
+
+def clear():
+    kelvin_entry.delete(0, tk.END)
+    celsius_entry.delete(0, tk.END)
+    fahrenheit_entry.delete(0, tk.END)
+
+root = tk.Tk()
+root.title("Temperature Conversion")
+
+tk.Label(root, text="Temperature Conversion", font=("Arial", 14)).grid(row=0, columnspan=2, pady=10)
+
+tk.Label(root, text="Kelvin:").grid(row=1, column=0, sticky="e", padx=5, pady=5)
+kelvin_entry = tk.Entry(root)
+kelvin_entry.grid(row=1, column=1, padx=5, pady=5)
+
+tk.Label(root, text="Celsius:").grid(row=2, column=0, sticky="e", padx=5, pady=5)
+celsius_entry = tk.Entry(root)
+celsius_entry.grid(row=2, column=1, padx=5, pady=5)
+
+tk.Label(root, text="Fahrenheit:").grid(row=3, column=0, sticky="e", padx=5, pady=5)
+fahrenheit_entry = tk.Entry(root)
+fahrenheit_entry.grid(row=3, column=1, padx=5, pady=5)
+
+calc_button = tk.Button(root, text="CALC", command=calculate)
+calc_button.grid(row=4, column=0, pady=10)
+
+clear_button = tk.Button(root, text="CLEAR", command=clear)
+clear_button.grid(row=4, column=1, pady=10)
+
+root.mainloop()
