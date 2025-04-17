@@ -27,11 +27,12 @@ def clear():
     kelvin_entry.delete(0, tk.END)
     celsius_entry.delete(0, tk.END)
     fahrenheit_entry.delete(0, tk.END)
+    
 
 root = tk.Tk()
-root.title("Temperature Conversion")
+root.title("Kelvin Conversion")
 
-tk.Label(root, text="Temperature Conversion", font=("Arial", 14)).grid(row=0, columnspan=2, pady=10)
+tk.Label(root, text="Kelvin Conversion", font=("Times New Roman", 18)).grid(row=0, columnspan=2, pady=10)
 
 tk.Label(root, text="Kelvin:").grid(row=1, column=0, sticky="e", padx=5, pady=5)
 kelvin_entry = tk.Entry(root)
