@@ -1,0 +1,60 @@
+import turtle
+
+screen = turtle.Screen()
+screen.bgcolor("white")
+t = turtle.Turtle()
+t.speed(0)
+
+def draw_circle(x, y, radius, color):
+    t.penup()
+    t.goto(x, y - radius)
+    t.pendown()
+    t.color(color)
+    t.begin_fill()
+    t.circle(radius)
+    t.end_fill()
+
+def draw_rectangle(x, y, width, height, color):
+    t.penup()
+    t.goto(x, y)
+    t.setheading(0)
+    t.color(color)
+    t.pendown()
+    t.begin_fill()
+    for _ in range(2):
+        t.forward(width)
+        t.right(90)
+        t.forward(height)
+        t.right(90)
+    t.end_fill()
+
+def draw_triangle(p1, p2, p3, color):
+    t.penup()
+    t.goto(p1)
+    t.color(color)
+    t.pendown()
+    t.begin_fill()
+    t.goto(p2)
+    t.goto(p3)
+    t.goto(p1)
+    t.end_fill()
+
+# green outline
+t.pensize(2)
+t.color("lime")
+draw_circle(0, 0, 150, "white")  # Use white fill to clear background
+
+# red eye
+draw_circle(-60, 60, 30, "red")
+
+# blue eye
+draw_circle(60, 60, 30, "blue")
+
+# yellow mouth
+draw_rectangle(-40, 0, 80, 15, "yellow")
+
+# black triangle
+draw_triangle((-50, -80), (50, -80), (0, -130), "black")
+
+t.hideturtle()
+turtle.done()
