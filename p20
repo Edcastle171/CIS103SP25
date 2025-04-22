@@ -1,7 +1,7 @@
 import turtle
 
 screen = turtle.Screen()
-screen.bgcolor("white")
+screen.bgcolor("purple")
 t = turtle.Turtle()
 t.speed(0)
 
@@ -39,21 +39,25 @@ def draw_triangle(p1, p2, p3, color):
     t.goto(p1)
     t.end_fill()
 
-# green outline
+
 t.pensize(2)
 t.color("lime")
-draw_circle(0, 0, 150, "white")  # Use white fill to clear background
+draw_circle(0, 0, 150, "lime")  
 
-# red eye
-draw_circle(-60, 60, 30, "red")
 
-# blue eye
+draw_circle(-60, 60, 30, "blue")
+
+draw_rectangle(200, 70, 70, 20, "black")
+
+draw_rectangle(200, 60, 20, 60, "black")
+
+draw_rectangle(140, 20, 60, 20, "lime")
+
 draw_circle(60, 60, 30, "blue")
 
-# yellow mouth
+
 draw_rectangle(-40, 0, 80, 15, "yellow")
 
-# black triangle
 draw_triangle((-50, -80), (50, -80), (0, -130), "black")
 
 t.hideturtle()
