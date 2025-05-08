@@ -6,7 +6,7 @@ class GuessNumberGame:
     def __init__(self, root):
         self.root = root
         self.root.title("Guess the Number Game")
-        self.root.geometry("400x400")
+        self.root.geometry("500x500")
         self.create_start_screen()
 
     def create_start_screen(self):
@@ -83,17 +83,17 @@ class GuessNumberGame:
         self.remaining_guesses -= 1
 
         if guess == self.number_to_guess:
-            self.result_label.config(text=f"Congratulations, {self.player_name}! You guessed it!", fg="green")
+            self.result_label.config(text=f"Congrats, {self.player_name}! Ya freakin' nailed it!", fg="green")
             self.end_game(True)
         elif guess < self.number_to_guess:
-            self.feedback_label.config(text="Too low!", fg="blue")
+            self.feedback_label.config(text="Too low, bud!", fg="orange")
         else:
-            self.feedback_label.config(text="Too high!", fg="blue")
+            self.feedback_label.config(text="Shootin' too high, killer!", fg="black")
 
         self.guesses_label.config(text=f"Guesses Left: {self.remaining_guesses}")
 
         if self.remaining_guesses == 0 and guess != self.number_to_guess:
-            self.result_label.config(text=f"Sorry, you lost! Number was {self.number_to_guess}", fg="red")
+            self.result_label.config(text=f"Boooo, you suck! The number was {self.number_to_guess}, get lost!", fg="red")
             self.end_game(False)
 
     def end_game(self, won):
